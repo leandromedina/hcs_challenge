@@ -1,0 +1,10 @@
+{
+  "name": "node-express-mongo-tasks",
+  "version": "1.0.0",
+  "description": "Simple task manager app built with NodeJS, Express and MongoDB",
+  "main": "app.js",
+  "scripts": {},
+  "dependencies": {},
+  "author": "Leandro Medina",
+  "license": ""
+}
