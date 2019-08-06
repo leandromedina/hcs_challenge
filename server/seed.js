@@ -10,7 +10,9 @@ seeder.connect(`mongodb://localhost/${process.env.DB_NAME}`, function() {
   })
 })
 
-const tomorrow = () => new Date(Date.now() + 24 * 60 * 60 * 1000)
+const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000)
+  .toISOString()
+  .substring(0, 10)
 
 const seeds = [
   {
@@ -33,7 +35,7 @@ const seeds = [
     documents: [
       {
         title: "My First Task",
-        due_date: tomorrow(),
+        due_date: tomorrow,
         completed: false
       }
     ]
