@@ -21,15 +21,24 @@ export default {
   methods: {
     login() {
       if (this.user.username != "" && this.user.password != "") {
-        if (
-          this.user.username == this.$parent.mockAccount.username &&
-          this.user.password == this.$parent.mockAccount.password
-        ) {
-          this.$emit("authenticated", true);
-          this.$router.replace({ name: "secure" });
-        } else {
-          console.log("The username and / or password is incorrect");
-        }
+        this.$http
+          .post("http://localhost:3000/api/login", this.user, {
+            headers: { "content-type": "application/json" }
+          })
+          .then(
+            result => {
+              console.log("result.data:", result.data);
+              if (result.data) {
+                this.$emit("authenticated", result.data);
+                this.$router.replace({ name: "secure" });
+              } else {
+                console.log("The username and / or password is incorrect");
+              }
+            },
+            error => {
+              console.error(error);
+            }
+          );
       } else {
         console.log("A username and password must be provided");
       }

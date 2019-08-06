@@ -26,11 +26,7 @@ export default {
     return {
       authenticated: false,
       user: {},
-      menu_open: false,
-      mockAccount: {
-        username: "test",
-        password: "test"
-      }
+      menu_open: false
     };
   },
   mounted() {
