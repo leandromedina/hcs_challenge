@@ -4,6 +4,7 @@
 
 - Project Info
   There are 2 folders one for the server and one for the client, each one has it's own README with info on how to setup and use the apps.
+  Once both apps are running you can use `test` as both the username and password to gain access.
 
 - A little bit about the how...
   I was asked to build a task manager app using node, express, mongodb and some js framework, as part of the interview process for a new position, and to do it from the ground up using any packages that already exist but not black box solutions.

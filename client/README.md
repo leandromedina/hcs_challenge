@@ -23,3 +23,9 @@ yarn build
 ```
 yarn lint
 ```
+
+### Client app is served on
+
+```
+http://localhost:8080
+```

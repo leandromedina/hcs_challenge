@@ -25,3 +25,9 @@ yarn dev-server
 ```
 yarn server
 ```
+
+### Server app is served on
+
+```
+http://localhost:3000
+```
