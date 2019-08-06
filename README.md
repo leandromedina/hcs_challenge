@@ -2,9 +2,13 @@
 
 ** Installation **
 
-First Use your favorite package manager to install node and mongodb, then follow the next steps to setup your project
+First Use your favorite package manager to install node and mongodb, then install node packages with
 
 - npm install
+
+Seed the database using
+
+- npm run seed
 
 ** Usage **
 To run production server use

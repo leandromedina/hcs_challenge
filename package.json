@@ -5,11 +5,13 @@
   "main": "server.js",
   "scripts": {
     "start": "DB_NAME=$npm_package_name node server/app.js",
+    "seed": "DB_NAME=$npm_package_name node server/seed.js",
     "dev": "DB_NAME=$npm_package_name nodemon --watch src server/app.js"
   },
   "dependencies": {
     "express": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "mongoose-seed": "*"
   },
   "devDependencies": {
     "nodemon": "*"
