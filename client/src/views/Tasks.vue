@@ -2,6 +2,7 @@
   <div class="tasks">
     <h1>Tasks</h1>
     <ul>
+      <li class="empty" v-if="!tasks.length">No tasks here, add one!</li>
       <li v-for="task in tasks" :key="task.id">
         <div class="task" v-bind:class="{'completed':task.completed}">
           <label>
@@ -12,7 +13,7 @@
             />
             {{task.title}} | due: {{task.due_date}}
           </label>
-          <button v-on:click="deleteTask(task.id)" class="delete">x</button>
+          <button v-on:click="deleteTask(task._id)" class="delete">x</button>
         </div>
       </li>
       <li class="newTask">
@@ -65,6 +66,7 @@ export default {
           .then(
             result => {
               this.tasks = [...this.tasks, result.data];
+              console.log("this.tasks:", this.tasks);
             },
             error => {
               this.errors = "* An unexpected error ocurred *";
@@ -78,15 +80,13 @@ export default {
     toggleCompleted(task) {
       const modifiedTask = { ...task, completed: !task.completed };
       this.$http
-        .put(`http://localhost:3000/api/tasks/${task.id}`, modifiedTask, {
+        .put(`http://localhost:3000/api/tasks/${task._id}`, modifiedTask, {
           headers: { "content-type": "application/json" }
         })
         .then(
           result => {
-            console.log("toggleCompleted result:", result);
-
             this.tasks = [
-              ...this.tasks.filter(t => t.id != modifiedTask.id),
+              ...this.tasks.filter(t => t._id != modifiedTask._id),
               modifiedTask
             ];
           },
@@ -99,9 +99,7 @@ export default {
     deleteTask(id) {
       this.$http.delete(`http://localhost:3000/api/tasks/${id}`).then(
         result => {
-          console.log("deleteTask result:", result);
-
-          this.tasks = this.tasks.filter(t => t.id != id);
+          this.tasks = this.tasks.filter(t => t._id != id);
         },
         error => {
           this.errors = "* An unexpected error ocurred *";
