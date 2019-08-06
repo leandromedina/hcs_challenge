@@ -20,3 +20,28 @@ const taskSchema = mongoose.Schema({
 })
 
 const Task = (module.exports = mongoose.model("Task", taskSchema))
+
+module.exports.getTasks = (callback, limit) => {
+  Task.find(callback).limit(limit)
+}
+
+module.exports.getTask = (id, callback) => {
+  Task.findById(id, callback)
+}
+
+module.exports.createTask = (task, callback) => {
+  Task.create(task, callback)
+}
+
+module.exports.modifyTask = (id, task, callback) => {
+  var update = {
+    title: task.title,
+    due_date: task.due_date,
+    completed: task.completed
+  }
+  Task.findByIdAndUpdate(id, update, callback)
+}
+
+module.exports.deleteTask = (id, callback) => {
+  Task.findByIdAndDelete(id, callback)
+}
