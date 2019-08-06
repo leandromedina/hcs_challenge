@@ -1,20 +1,27 @@
-## Node Express Mongo DB Task Manager Server App
+# Node Express MongoDB Task Manager Server App
 
-** Installation **
+## Project setup
 
-First Use your favorite package manager to install node and mongodb, then install node packages with
+First Use your favorite package manager to install node,mongodb and yarn, then install node packages with
 
-- npm install
+```
+yarn install
+```
 
-Seed the database using
+### Seed the database
 
-- npm run seed
+```
+yarn seed
+```
 
-** Usage **
-To run production server use
+### Compile and hot-reload for development
 
-- npm run start
+```
+yarn dev-server
+```
 
-To run development server with nodemon
+### Compile and serve for production
 
-- npm run dev
+```
+yarn server
+```

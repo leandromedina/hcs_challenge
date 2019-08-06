@@ -9,23 +9,17 @@ yarn install
 ### Compiles and hot-reloads for development
 
 ```
-yarn run serve
+yarn dev-client
 ```
 
 ### Compiles and minifies for production
 
 ```
-yarn run build
-```
-
-### Run your tests
-
-```
-yarn run test
+yarn build
 ```
 
 ### Lints and fixes files
 
 ```
-yarn run lint
+yarn lint
 ```

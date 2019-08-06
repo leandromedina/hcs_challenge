@@ -4,18 +4,19 @@
   "description": "Simple task manager app built with NodeJS, Express and MongoDB",
   "main": "app.js",
   "scripts": {
-    "start": "DB_NAME=$npm_package_name node app.js",
     "seed": "DB_NAME=$npm_package_name node seed.js",
-    "dev": "DB_NAME=$npm_package_name nodemon --watch src app.js"
+    "server": "DB_NAME=$npm_package_name node app.js",
+    "dev-server": "DB_NAME=$npm_package_name nodemon --watch src app.js"
   },
   "dependencies": {
     "express": "*",
     "mongoose": "*",
-    "mongoose-seed": "*"
+    "mongoose-seed": "*",
+    "yarn": "*"
   },
   "devDependencies": {
     "nodemon": "*"
   },
   "author": "Leandro Medina <leandromedinacortes@gmail.com>",
-  "license": ""
+  "license": "MIT"
 }
