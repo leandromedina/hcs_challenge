@@ -79,5 +79,55 @@ app.delete("/api/users/:id", (req, res) => {
   })
 })
 
+app.get("/api/tasks", (req, res) => {
+  Task.getTasks((err, tasks) => {
+    if (err) {
+      throw err
+    }
+    res.json(tasks)
+  })
+})
+
+app.get("/api/tasks/:id", (req, res) => {
+  const id = req.params.id
+  Task.getTask(id, (err, tasks) => {
+    if (err) {
+      throw err
+    }
+    res.json(tasks)
+  })
+})
+
+app.post("/api/tasks", (req, res) => {
+  const task = req.body
+  Task.createTask(task, (err, task) => {
+    if (err) {
+      throw err
+    }
+    res.json(task)
+  })
+})
+
+app.put("/api/tasks/:id", (req, res) => {
+  const id = req.params.id
+  const task = req.body
+  Task.modifyTask(id, task, {}, (err, task) => {
+    if (err) {
+      throw err
+    }
+    res.json(task)
+  })
+})
+
+app.delete("/api/tasks/:id", (req, res) => {
+  const id = req.params.id
+  Task.deleteTask(id, (err, task) => {
+    if (err) {
+      throw err
+    }
+    res.json(task)
+  })
+})
+
 app.listen(3000)
 console.log("Running on port 3000...")
