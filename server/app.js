@@ -4,7 +4,8 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 
 mongoose.connect(`mongodb://localhost/${process.env.DB_NAME}`, {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useFindAndModify: false
 })
 
 const User = require("./models/user")
