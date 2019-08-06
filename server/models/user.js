@@ -38,11 +38,11 @@ module.exports.createUser = (user, callback) => {
   User.create(user, callback)
 }
 
-module.exports.modifyUser = (id, user, options, callback) => {
+module.exports.modifyUser = (id, user, callback) => {
   const update = {
     name: user.name
   }
-  User.findByIdAndUpdate(id, update, options, callback)
+  User.findByIdAndUpdate(id, update, callback)
 }
 
 module.exports.deleteUser = (id, callback) => {
