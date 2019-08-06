@@ -2,7 +2,9 @@ const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
 
-mongoose.connect(`mongodb://localhost/${process.env.DB_NAME}`)
+mongoose.connect(`mongodb://localhost/${process.env.DB_NAME}`, {
+  useNewUrlParser: true
+})
 const db = mongoose.connection
 
 app.listen(3000)
