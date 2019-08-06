@@ -3,22 +3,17 @@
     <h1 class="title">Tasks</h1>
     <ul>
       <li class="empty" v-if="!tasks.length">No tasks here, add one!</li>
-      <li
-        v-for="task in tasks"
-        :key="task.id"
-        class="task"
-        :class="{ completed: task.completed }"
-      >
+      <li v-for="task in tasks" :key="task.id" class="task" :class="{ completed: task.completed }">
         <input
           type="checkbox"
           :id="`task-${task._id}`"
           v-on:change="toggleCompleted(task)"
           :checked="task.completed"
         />
-        <label :for="`task-${task._id}`"
-          >{{ task.title }} | due:
-          {{ new Date(task.due_date).toISOString().substring(0, 10) }}</label
-        >
+        <label :for="`task-${task._id}`">
+          {{ task.title }} | due:
+          {{ new Date(task.due_date).toISOString().substring(0, 10) }}
+        </label>
         <button v-on:click="deleteTask(task._id)" class="delete">+</button>
       </li>
       <li class="newTask">
@@ -64,6 +59,7 @@ export default {
   },
   methods: {
     addTask() {
+      this.errors = "";
       if (this.newTask.title && this.newTask.due_date) {
         this.$http
           .post("http://localhost:3000/api/tasks", this.newTask, {
