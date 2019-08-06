@@ -1,4 +1,4 @@
-## Leandro Medina HCS Challenge
+## Node Express Mongo DB Task Manager Server App
 
 ** Installation **
 
@@ -15,6 +15,6 @@ To run production server use
 
 - npm run start
 
-To run development server
+To run development server with nodemon
 
 - npm run dev

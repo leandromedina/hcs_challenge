@@ -1,12 +1,12 @@
 {
-  "name": "node-express-mongo-tasks",
+  "name": "node-express-mongo-taskmanager",
   "version": "1.0.0",
   "description": "Simple task manager app built with NodeJS, Express and MongoDB",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "DB_NAME=$npm_package_name node server/app.js",
-    "seed": "DB_NAME=$npm_package_name node server/seed.js",
-    "dev": "DB_NAME=$npm_package_name nodemon --watch src server/app.js"
+    "start": "DB_NAME=$npm_package_name node app.js",
+    "seed": "DB_NAME=$npm_package_name node seed.js",
+    "dev": "DB_NAME=$npm_package_name nodemon --watch src app.js"
   },
   "dependencies": {
     "express": "*",

@@ -1,7 +1,7 @@
 const seeder = require("mongoose-seed")
 
 seeder.connect(`mongodb://localhost/${process.env.DB_NAME}`, function() {
-  seeder.loadModels(["server/models/user.js", "server/models/task.js"])
+  seeder.loadModels(["models/user.js", "models/task.js"])
 
   seeder.clearModels(["User", "Task"], function() {
     seeder.populateModels(seeds, function() {
