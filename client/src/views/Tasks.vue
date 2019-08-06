@@ -3,16 +3,22 @@
     <h1 class="title">Tasks</h1>
     <ul>
       <li class="empty" v-if="!tasks.length">No tasks here, add one!</li>
-      <li v-for="task in tasks" :key="task.id" class="task" :class="{'completed':task.completed}">
+      <li
+        v-for="task in tasks"
+        :key="task.id"
+        class="task"
+        :class="{ completed: task.completed }"
+      >
         <input
           type="checkbox"
           :id="`task-${task._id}`"
           v-on:change="toggleCompleted(task)"
-          v-bind:checked="task.completed"
+          :checked="task.completed"
         />
-        <label
-          :for="`task-${task._id}`"
-        >{{task.title}} | due: {{new Date(task.due_date).toISOString().substring(0,10)}}</label>
+        <label :for="`task-${task._id}`"
+          >{{ task.title }} | due:
+          {{ new Date(task.due_date).toISOString().substring(0, 10) }}</label
+        >
         <button v-on:click="deleteTask(task._id)" class="delete">+</button>
       </li>
       <li class="newTask">
@@ -32,7 +38,7 @@
           v-on:keyup.enter="addTask()"
         />
         <button v-on:click="addTask()" class="add">+</button>
-        <span class="errors" v-if="errors">{{this.errors}}</span>
+        <span class="errors" v-if="errors">{{ this.errors }}</span>
       </li>
     </ul>
   </div>
@@ -84,7 +90,7 @@ export default {
           headers: { "content-type": "application/json" }
         })
         .then(
-          result => {
+          () => {
             this.tasks = [
               ...this.tasks.filter(t => t._id != modifiedTask._id),
               modifiedTask
@@ -99,7 +105,7 @@ export default {
     deleteTask(id) {
       if (confirm("Are you sure you want to delete?")) {
         this.$http.delete(`http://localhost:3000/api/tasks/${id}`).then(
-          result => {
+          () => {
             this.tasks = this.tasks.filter(t => t._id != id);
           },
           error => {

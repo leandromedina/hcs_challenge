@@ -5,12 +5,16 @@
       <div
         class="menu-toggle"
         v-on:click="toggleMenu"
-        v-bind:class="{opem: menu_open}"
-      >Hello {{ user.name }}</div>
-      <div class="menu" v-bind:class="{open: menu_open}">
+        v-bind:class="{ opem: menu_open }"
+      >
+        Hello {{ user.name }}
+      </div>
+      <div class="menu" v-bind:class="{ open: menu_open }">
         <router-link to="/tasks">Tasks</router-link>
         <router-link to="/about">About</router-link>
-        <router-link to="/login" v-on:click.native="logout()">Logout</router-link>
+        <router-link to="/login" v-on:click.native="logout()"
+          >Logout</router-link
+        >
       </div>
     </nav>
     <main>
