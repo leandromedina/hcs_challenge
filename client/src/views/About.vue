@@ -1,5 +1,17 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>A little bit about the how and why...</h1>
+    <p>Hi, my name is Leandro Medina and I was asked to build a task manager app using node, express, mongodb and some js framework, as part of the interview process for a new position, and to do it from the ground up using any packages that already exist but not black box solutions.</p>
+    <p>So i started by the express server and the api to conect with the mongo database, for that i used mongoose, and mongoose-seed to populate the database when you just cloned the repository, cause it just more convenient than having to do it one record at a time in the console.</p>
+    <p>I created the models and the methods to query and interact with the collections, and after that the endpoints for the api. Once i got something more or less running i started to test it using postman, to my surprise I remembered more than I though (have not worked with express or mongo in more than a year) and everything worked without major complications =)</p>
+    <p>With a functioning api and database, I put my efforts into the client app, to which i decided to go with VueJS, I've been waiting for an excuse to try it for a while but never got the time, and since it is the framework the client is using it seemed like a good way to test my skills and pick up something new in the process. It was a little slow the first few trys but after some crash courses I noticed i has quite a few similarities to other frameworks, and it started to gain momentum, took my time to get the styles to look nice and not only the pages to work, and when it was time to connect server and client i had some issues with CORS cause the package i was trying to use turns out did not get along with another one i was using for parsing the body of the requests.</p>
+    <p>All that being said I think that the end result will met your requirements, I did not get enough time to capture screenshots of the process or do any videos but i tried to make as many commits as possible to try to document the process that way, Git Flow helped with that as well (yet another thing I been wanting to try out but never found the right project or time).</p>
   </div>
 </template>
+
+<style scoped>
+.about {
+  max-width: 1024px;
+  padding: 15px;
+}
+</style>
