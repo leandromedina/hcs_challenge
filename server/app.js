@@ -61,7 +61,7 @@ app.post("/api/users", (req, res) => {
 app.put("/api/users/:id", (req, res) => {
   const id = req.params.id
   const user = req.body
-  User.modifyUser(id, user, {}, (err, user) => {
+  User.modifyUser(id, user, (err, user) => {
     if (err) {
       throw err
     }
@@ -111,7 +111,7 @@ app.post("/api/tasks", (req, res) => {
 app.put("/api/tasks/:id", (req, res) => {
   const id = req.params.id
   const task = req.body
-  Task.modifyTask(id, task, {}, (err, task) => {
+  Task.modifyTask(id, task, (err, task) => {
     if (err) {
       throw err
     }

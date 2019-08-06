@@ -39,10 +39,7 @@ module.exports.createUser = (user, callback) => {
 }
 
 module.exports.modifyUser = (id, user, callback) => {
-  const update = {
-    name: user.name
-  }
-  User.findByIdAndUpdate(id, update, callback)
+  User.findByIdAndUpdate(id, { ...user }, {}, callback)
 }
 
 module.exports.deleteUser = (id, callback) => {

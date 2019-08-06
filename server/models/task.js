@@ -34,12 +34,7 @@ module.exports.createTask = (task, callback) => {
 }
 
 module.exports.modifyTask = (id, task, callback) => {
-  var update = {
-    title: task.title,
-    due_date: task.due_date,
-    completed: task.completed
-  }
-  Task.findByIdAndUpdate(id, update, callback)
+  Task.findByIdAndUpdate(id, { ...task }, {}, callback)
 }
 
 module.exports.deleteTask = (id, callback) => {
